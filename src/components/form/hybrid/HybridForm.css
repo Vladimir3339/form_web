@@ -1,0 +1,22 @@
+.utility-container {
+}
+
+.form-checkbox-group {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.form-info-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #f0f9ff;
+  border-left: 4px solid #0ea5e9;
+  border-radius: 4px;
+}
+
+.form-info-box p {
+  line-height: 1.5;
+}
