@@ -6,7 +6,6 @@ import { contactFormSchema, type ContactFormData } from "../validation";
 export function useContactForm(onSubmit?: (data: ContactFormData) => void) {
   const [isSuccess, setIsSuccess] = useState(false);
   
-  // Явно указываем дженерик <ContactFormData>, чтобы типы совпадали идеально
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {

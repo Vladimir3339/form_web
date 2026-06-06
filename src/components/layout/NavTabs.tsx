@@ -1,36 +1,35 @@
+import { NavLink } from "react-router-dom";
+
 type Variant = {
   id: string;
   label: string;
 };
 
 const variants: Variant[] = [
-  { id: "baseline", label: "Глобальный CSS" },
-  { id: "bem", label: "BEM" },
+  { id: "baseline",   label: "Глобальный CSS" },
+  { id: "bem",        label: "BEM" },
   { id: "css-modules", label: "CSS Modules" },
-  { id: "utility", label: "Utility CSS" },
-  { id: "inline", label: "Inline-стили" },
-  { id: "css-in-js", label: "CSS-in-JS" },
-  { id: "mui", label: "UI-библиотека" },
-  { id: "hybrid", label: "Гибридный" }, // ← ДОБАВИЛИ
+  { id: "utility",    label: "Utility CSS" },
+  { id: "inline",     label: "Inline-стили" },
+  { id: "css-in-js",  label: "CSS-in-JS" },
+  { id: "mui",        label: "UI-библиотека" },
+  { id: "hybrid",     label: "Гибридный" },
 ];
 
-type NavTabsProps = {
-  active: string;
-  onChange: (id: string) => void;
-};
-
-export function NavTabs({ active, onChange }: NavTabsProps) {
+export function NavTabs() {
   return (
     <nav className="nav-tabs" aria-label="Варианты стилизации формы">
       {variants.map((v) => (
-        <button
+        <NavLink
           key={v.id}
-          type="button"
-          className={"nav-tab" + (v.id === active ? " nav-tab--active" : "")}
-          onClick={() => onChange(v.id)}
+          to={v.id} // относительный путь: /baseline, /bem и т.д. [web:18]
+          className={({ isActive }) =>
+            "nav-tab" + (isActive ? " nav-tab--active" : "")
+          }
+          end
         >
           {v.label}
-        </button>
+        </NavLink>
       ))}
     </nav>
   );
